@@ -47,9 +47,11 @@ siteName.addEventListener("keyup", (e) => {
     if (isRequirementMet) {
       requirementItem.classList.add("valid");
       requirementItem.firstElementChild.className = "fa-solid fa-check";
+      validate(siteName, nameRegex);
     } else {
       requirementItem.classList.remove("valid");
       requirementItem.firstElementChild.className = "fa-solid fa-circle";
+      validate(siteName, nameRegex);
       isValid = false;
     }
   });
@@ -73,9 +75,11 @@ siteURL.addEventListener("keyup", (e) => {
     if (isRequirementMet) {
       requirementItem.classList.add("valid");
       requirementItem.firstElementChild.className = "fa-solid fa-check";
+      validate(siteURL, urlRegex);
     } else {
       requirementItem.classList.remove("valid");
       requirementItem.firstElementChild.className = "fa-solid fa-circle";
+      validate(siteURL, urlRegex);
       isValid = false;
     }
   });
