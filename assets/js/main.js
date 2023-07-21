@@ -15,7 +15,7 @@ var siteNameWarn = document.getElementById("siteNameWarn");
 var siteURLWarn = document.getElementById("siteURLWarn");
 var bookmarks = [];
 //Regex
-var nameRegex = /^\w{3,}(\s+\w+)*$/;
+var nameRegex = /^[A-Z]\w{2,}(\s+\w+)*$/;
 var urlRegex = /^(https?:\/\/)?(w{3}\.)?\w+\.\w{2,}\/?(:\d{2,5})?(\/\w+)*$/;
 
 const siteNameRequirements = [
@@ -36,31 +36,29 @@ if (localStorage.getItem("bookMarker") != null) {
   displaySites();
 }
 
-//Validate on INPUT
 siteName.addEventListener("keyup", (e) => {
   let isValid = true;
-
+  debugger;
   siteNameRequirements.forEach((item) => {
     const isRequirementMet = item.regex.test(e.target.value);
     const requirementItem = requirementList[item.index];
-
+    debugger;
     if (isRequirementMet) {
       requirementItem.classList.add("valid");
       requirementItem.firstElementChild.className = "fa-solid fa-check";
-      validate(siteName, nameRegex);
     } else {
       requirementItem.classList.remove("valid");
       requirementItem.firstElementChild.className = "fa-solid fa-circle";
-      validate(siteName, nameRegex);
       isValid = false;
     }
   });
-
+  debugger;
   if (isValid) {
     siteNameWarn.classList.add("d-none");
     validate(siteName, nameRegex);
   } else {
     siteNameWarn.classList.remove("d-none");
+    validate(siteName, nameRegex);
   }
 });
 
@@ -75,11 +73,9 @@ siteURL.addEventListener("keyup", (e) => {
     if (isRequirementMet) {
       requirementItem.classList.add("valid");
       requirementItem.firstElementChild.className = "fa-solid fa-check";
-      validate(siteURL, urlRegex);
     } else {
       requirementItem.classList.remove("valid");
       requirementItem.firstElementChild.className = "fa-solid fa-circle";
-      validate(siteURL, urlRegex);
       isValid = false;
     }
   });
@@ -89,29 +85,9 @@ siteURL.addEventListener("keyup", (e) => {
     validate(siteURL, urlRegex);
   } else {
     siteURLWarn.classList.remove("d-none");
+    validate(siteURL, urlRegex);
   }
 });
-
-// siteURL.addEventListener("keyup", (e) => {
-//   siteURLRequirements.forEach((item) => {
-//     const isValid = item.regex.test(e.target.value);
-//     const requirementItem = requirementList[item.index];
-
-//     if (isValid) {
-//       requirementItem.classList.add("valid");
-//       requirementItem.firstElementChild.className = "fa-solid fa-check";
-//       siteURLWarn.classList.add("d-none");
-//       validate(siteURL, urlRegex);
-//     } else {
-//       requirementItem.classList.remove("valid");
-//       requirementItem.firstElementChild.className = "fa-solid fa-circle";
-//       siteURLWarn.classList.remove("d-none");
-//       validate(siteURL, urlRegex);
-//     }
-//   });
-// });
-
-//
 
 //Add Site Function
 function addSite() {
@@ -139,6 +115,7 @@ function addSite() {
 
 //Validate Function
 function validate(element, regex) {
+  debugger;
   var testRegex = regex;
   if (testRegex.test(element.value)) {
     element.classList.add("is-valid");
