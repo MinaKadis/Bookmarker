@@ -189,6 +189,40 @@ function displaySites() {
   tableContent.innerHTML = data;
 }
 
+function search(search) {
+  var query = ``;
+  for (let i = 0; i < bookmarks.length; i++) {
+    if (bookmarks[i].name.toLowerCase().includes(search.toLowerCase())) {
+      query += `
+      <tr>
+      <td>${bookmarks[i].name.replace(
+        new RegExp(search, "ig"),
+        "<span>" + search + "</span>"
+      )}</td>
+      <td>${bookmarks[i].url}</td>
+      <td>
+        <button class="btn btn-visit" onclick="visitWebsite(${i})">
+        <i class="fa-solid fa-eye fa-beat-fade pe-2"></i>Visit
+      </button>
+      </td>
+      <td>
+      <button class="btn btn-delete pe-2" onclick="deleteItem(${i})">
+      <i class="fa-solid fa-trash-can fa-flip"></i>
+      Delete
+    </button>
+    <button class="btn btn-update pe-2" onclick="updateItem(${i})">
+    <i class="fa-solid fa-pen-to-square fa-bounce"></i>
+    Update
+  </button>
+      </td>
+      
+    </tr>
+      `;
+    }
+  }
+  tableContent.innerHTML = query;
+}
+
 //Delete Sites From Table
 function deleteItem(i) {
   debugger;

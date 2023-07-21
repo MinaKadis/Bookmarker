@@ -95,12 +95,19 @@
           Update
         </button>
       </div>
+      <input
+        id="search"
+        onkeyup="search(this.value)"
+        type="text"
+        class="form-control w-50 mt-2"
+        placeholder="Search..."
+      />
       <table class="table mt-4 table-hover text-center bg-light">
         <thead>
           <th class="text-capitalize">index</th>
           <th class="text-capitalize">Website Name</th>
           <th class="text-capitalize">Visit</th>
-          <th class="text-capitalize">Delete</th>
+          <th class="text-capitalize">Actions</th>
         </thead>
         <tbody id="tableContent"></tbody>
       </table>
