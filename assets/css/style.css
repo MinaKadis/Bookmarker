@@ -164,7 +164,7 @@ table {
   margin-top: 20px;
 }
 .requirement-list li {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   list-style: none;
   display: flex;
   align-items: center;
@@ -176,7 +176,7 @@ table {
   font-size: 0.6rem;
 }
 .requirement-list li.valid i {
-  font-size: 10px;
+  font-size: 1rem;
   color: #4285f4;
 }
 .requirement-list li span {
@@ -191,7 +191,7 @@ table {
   margin-top: 20px;
 }
 .requirements-list li {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   list-style: none;
   display: flex;
   align-items: center;
@@ -203,7 +203,7 @@ table {
   font-size: 0.6rem;
 }
 .requirements-list li.valid i {
-  font-size: 10px;
+  font-size: 1rem;
   color: #4285f4;
 }
 .requirements-list li span {
